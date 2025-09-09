@@ -1,7 +1,10 @@
 import "./globals.css";
 
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+
+import Header from "@/components/header";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -9,8 +12,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Dev Donalds",
-  description: "Dev Donalds",
+  title: "Dev Runner",
+  description: "Dev Runner",
 };
 
 export default function RootLayout({
@@ -19,10 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${poppins.className} antialiased`}>
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="pt-BR">
+        <body className={`${poppins.className} antialiased`}>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
