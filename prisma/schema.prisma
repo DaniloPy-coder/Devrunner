@@ -17,6 +17,7 @@ model trainning_session {
   id                      BigInt   @id @default(autoincrement())
   external_user_id        String   @db.VarChar(50)
   session_datetime        DateTime @default(now()) @db.Timestamptz(6)
+  distance_km             Decimal  @db.Decimal(5, 2)
   duration_min            Int
   calories_burned_kcal    Int
   average_pace_km_per_min Decimal  @db.Decimal(4, 2)
