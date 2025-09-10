@@ -41,7 +41,7 @@ export default function RunningDashboardTable() {
                 <CardHeader>
                     <CardTitle className="text-xl font-semibold">Suas corridas</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="max-h-96 overflow-y-auto">
                     <Table>
                         <TableHeader>
                             <TableRow>
