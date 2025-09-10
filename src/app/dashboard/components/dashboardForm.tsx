@@ -1,7 +1,9 @@
 "use client";
 
 import { Activity, Plus } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,7 +20,7 @@ type FormDataType = {
     calories_burned_kcal: string;
 };
 
-export default function RunningDashboardForm({ onAdded }: { onAdded?: () => void }) {
+export default function RunningDashboardForm() {
     const [loading, setLoading] = useState(false);
     const [form, setForm] = useState<FormDataType>({
         session_datetime: "",
@@ -26,6 +28,8 @@ export default function RunningDashboardForm({ onAdded }: { onAdded?: () => void
         duration_min: "",
         calories_burned_kcal: "",
     });
+
+    const router = useRouter();
 
     const distance = parseFloat(form.distance_km) || 0;
     const duration = parseFloat(form.duration_min) || 0;
@@ -49,10 +53,11 @@ export default function RunningDashboardForm({ onAdded }: { onAdded?: () => void
                 average_pace_km_per_min: pace,
             });
             setForm({ session_datetime: "", distance_km: "", duration_min: "", calories_burned_kcal: "" });
-            onAdded?.();
+            toast.success("Corrida adicionada com sucesso!");
+            router.refresh();
         } catch (err) {
             console.error(err);
-            alert("Erro ao adicionar corrida");
+            toast.error("Erro ao adicionar corrida");
         } finally {
             setLoading(false);
         }
