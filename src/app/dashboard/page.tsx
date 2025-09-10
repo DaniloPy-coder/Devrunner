@@ -9,7 +9,7 @@ export default async function Dashboard() {
 
     return (
         <>
-            <div className="grid grid-cols-2 gap-4 ml-3">
+            <div className="grid grid-cols-2 gap-4">
                 <RunningDashboardForm />
                 <RunningDashboardTable />
                 <DashboardLineChart sessions={sessions} />
