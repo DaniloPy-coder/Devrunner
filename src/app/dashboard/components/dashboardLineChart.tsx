@@ -15,6 +15,7 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart"
+import { getSemesterRange } from "@/helpers/semester_range"
 
 import { TrainningSession } from "../actions/create_trainning_session"
 
@@ -36,7 +37,10 @@ export default function DashboardLineChart({ sessions }: DashboardLineProps) {
         <Card>
             <CardHeader>
                 <CardTitle>KM corridos por dia</CardTitle>
-                <CardDescription>Janeiro - Junho 2024</CardDescription>
+                <CardDescription>{sessions.length > 0
+                    ? getSemesterRange(new Date(sessions[sessions.length - 1].session_datetime))
+                    : getSemesterRange()}
+                </CardDescription>
             </CardHeader>
             <CardContent>
                 <ChartContainer config={chartConfig}>
