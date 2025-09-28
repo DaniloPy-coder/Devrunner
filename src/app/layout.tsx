@@ -32,6 +32,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="pt-BR">
+        <head>
+          <meta name="google-adsense-account" content="ca-pub-1823641392147016" />
+        </head>
         <body className={`${poppins.className} antialiased`}>
           <Header />
           {children}
