@@ -13,8 +13,15 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Dev Runner",
-  description: "Dev Runner",
+  title: "Expo Runner",
+  description: "Expo Runner",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png" },
+      { url: "/android-icon-36x36.png" },
+      { url: "apple-icon-76x76.png" },
+    ]
+  }
 };
 
 export default function RootLayout({
