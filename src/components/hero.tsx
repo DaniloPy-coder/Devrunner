@@ -12,7 +12,7 @@ export default function Hero() {
                 </h1>
 
                 <p className="mt-6 text-lg leading-relaxed text-gray-600 sm:text-xl">
-                    O <span className="font-semibold text-primary">Dev Runner</span> é a plataforma perfeita para você que gosta de correr.
+                    O <span className="font-semibold text-primary">Expo Runner</span> é a plataforma perfeita para você que gosta de correr.
                     Registre suas corridas, acompanhe seu progresso e alcance seus objetivos.
                 </p>
 
